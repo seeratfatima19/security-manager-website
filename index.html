@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="SecurityManager.js"></script>
+
+        <script>
+            function valid_admin(){
+                var usr = document.getElementById("admin-name").value;
+                var pass = document.getElementById("admin-pass").value;
+
+                if(usr=="")
+                {
+                    
+                    document.getElementById('admin-error').innerHTML="Enter username";
+                    return false;
+                }
+                if(pass=="")
+                {
+                    document.getElementById('admin-error').innerHTML="Enter password";
+                    return false;
+                }
+                
+                if(!SecurityManager.ValidateAdmin(usr,pass))
+                { 
+                    document.getElementById('admin-error').innerHTML="Wrong credentials";
+                    return false;
+                }
+            }
+
+
+            function valid_user()
+            {
+                var usr = document.getElementById("usr-name").value;
+                var pass = document.getElementById("usr-pass").value;
+
+                if(usr=="")
+                {                   
+                    document.getElementById('user-error').innerHTML="Enter username";
+                    return false;
+                }
+
+                if(pass=="")
+                {
+                    document.getElementById('user-error').innerHTML="Enter password";
+                    return false;
+                }
+
+                if(!validateUser(usr,pass))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            function validateUser(usr,pass)
+            {
+                var users = SecurityManager.GetAllUsers();
+
+                for(var i=0; i<users.length;i++)
+                {
+                    if(users[i].Login == usr)
+                    {
+                        if(users[i].Password == pass)
+                        {
+                            localStorage.setItem('login',users[i].Login);
+                            return true;
+                        }
+
+                        document.getElementById('user-error').innerHTML="Wrong Password entered!";
+                        return false;
+
+                    }
+                }
+
+                document.getElementById('user-error').innerHTML="User doesn't exist!";
+                return false;
+
+                
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="page-container">
+            <h1 style="font-size: 50px;">Security Manager</h1>
+
+                 <div class="form-container">
+
+                <div class="admin-login">
+                    <div class="login-head">
+                    <h2>Login Admin</h2>
+                    </div>
+                    <span id="admin-error" style="color:red; font-size:20;"></span>
+                    <form action="admin.html" onsubmit="return valid_admin();">
+                        <label>Username</label></br>
+                        <input type="text" id="admin-name"></br>
+                        <label>Password</label></br>
+                        <input type="password" id="admin-pass"></br>
+                        </br>
+                        <div class="button">
+                            <button type="submit" class="btn" >Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="user-login">
+                    <div class="login-head">
+                        <h2>Login User</h2>
+                    </div>
+                    <span id="user-error" style="color:red; font-size:20;"></span>
+                    <form action="user.html" onsubmit="return valid_user();">
+                        <label>Username</label></br>
+                        <input type="text" id="usr-name"></br>
+                        <label>Password</label></br>
+                        <input type="password" id="usr-pass"></br>
+                        </br>
+                        <div class="button">
+                            <button type="submit" class="btn">Login</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

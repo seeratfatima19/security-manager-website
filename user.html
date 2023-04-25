@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>User</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="SecurityManager.js"></script>
+
+        <script>
+            function showRoles()
+            {
+                var user_roles = SecurityManager.GetAllUserRoles();
+                var usr = localStorage.getItem('login');
+                var role_perm = SecurityManager.GetAllRolePermissions();
+                const new_div = document.createElement('div');
+                new_div.setAttribute('class','display-roles');
+
+                for(var i=0;i<user_roles.length;i++)
+                {
+                    if(usr== user_roles[i].User)
+                    {
+                        
+                        const new_span = document.createElement('span');
+                        const h2 = document.createElement('h2');
+                        h2.innerText = "Role: "+ user_roles[i].Role;
+                        new_span.appendChild(h2);
+                        const h3 = document.createElement('h3');
+                        h3.setAttribute('class','perm-head');
+                        h3.innerText = "Permissions:";
+                        new_span.appendChild(h3);
+
+                        
+                        for(var j=0;j<role_perm.length;j++)
+                        {
+                            if(role_perm[j].Role == user_roles[i].Role)
+                            {
+                                const h4= document.createElement('h4');
+                                h4.innerText=role_perm[j].Permission;
+                                new_span.appendChild(h4);
+                            }   
+                        }
+
+                        new_div.appendChild(new_span);
+                        
+                    }
+                   
+                }
+
+                document.getElementById('role-perm').appendChild(new_div);
+            }
+        </script>
+
+        <style>
+            body{
+                background-color: #F3F3F3;
+            }
+            
+            .center-div
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            .center-div-2
+            {
+                width:60%;
+                top:40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                box-shadow:1px 1px 5px #d9d9d9;
+                background-color: #ffffff;
+
+            }
+
+            #role-perm
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .heading
+            {
+                width:100%;
+                background-color: #3d3d3d;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body onload="showRoles();">
+        <div class="page-container">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="user.html">Home</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                  </ul>
+            </div>
+
+
+            <div class="center-div">
+                <div class="center-div-2">
+
+                    <div class="heading">
+                    <h1 style="color:#f3f3f3; text-align:center; margin-top:50px; background-color:#3d3d3d ;">Welcome User!</h1> 
+                    </div>
+                    <div class="role-perm" id="role-perm">
+
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+    </body>
+</html>

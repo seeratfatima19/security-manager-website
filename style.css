@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&display=swap');
+
+body{
+    background-color:#f3f3f3;
+    height:100%;
+    font-family:'Gentium Book Plus', serif;
+    overflow-x: hidden;
+}
+
+.page-container{
+    height: 100%;
+    margin: -10px -10px 0px -10px;
+    
+}
+
+
+
+.nav-bar{
+display: flex;
+flex-direction: row;
+height:50px;
+background:#3D3D3D;
+width:100%;
+padding-top:10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: arial, sans-serif;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #f2f2f2;
+    color:black;
+}
+
+
+.table-border{
+
+    
+    max-width: 600px;
+    border-collapse: collapse;
+    border: 1px solid #d9d9d9;
+    margin: 50px auto;
+    background: white;
+    text-align: center;
+    box-shadow:2px 2px 5px #d9d9d9;
+}
+
+th {
+    background: #F3F3F3;
+    height: 54px;
+    width: 25%;
+    color: #131313;
+    border: 1px solid #d9d9d9;
+    transition: all 0.2s;
+  }
+
+  tr {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  tr:last-child {
+    border-bottom: 0px;
+  }
+  td {
+    border-right: 1px solid #d9d9d9;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  td:last-child {
+    border-right: 0px;
+  }
+  
+
+.form-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+    margin-top: 200px; 
+}
+
+form{
+  
+    
+    background-color: #ffffff;
+    justify-items: center;
+    padding:50px 30px 30px 50px;
+    box-shadow:2px 2px 5px #d9d9d9;
+}
+
+input, #cmbCountries, #cmbCities, .dropdown{
+
+    width:250px;
+    height: 40px;
+    border-radius:7px;
+    background-image: linear-gradient(#dfdfdf,#ffffff);
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+    color:#131313;
+    
+}
+
+input[type=text]:focus{
+    border: 3px solid #131313;
+}
+
+label{
+    font-style: arial;
+    color:#3d3d3d;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.btn{
+
+    width: 100%;
+    padding: 10px 40px 10px 40px ;
+    border-style: none;
+    background-color:#3d3d3d;
+    color:#F3F3F3;
+    border-radius: 2px;
+    font-size: 20px;
+
+
+}
+
+
+.form-header{
+    width:100%;
+    color: #3D3D3D;
+}
+
+.btn, a, #cmbCities, #cmbCountries, .dropdown{
+    cursor: pointer;
+}

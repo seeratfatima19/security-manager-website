@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>User Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="SecurityManager.js"></script>
+
+    <script src="user-mgmt.js"></script>
+
+    <style>
+        .container-2{
+            height:100%;
+            display:flex;
+            flex-direction: row;
+            align-items:center;
+            justify-content:space-around;
+
+            
+        }
+
+        .head
+        {
+            margin-top:-10px;
+        }
+    </style>
+</head>    
+
+<body onload="Main();showTable();">
+    <div class="page-container">
+
+        <div class="nav-bar">
+            <ul>
+                <li><a href="admin.html">Home</a></li>
+                <li><a href="usr-mgmt.html">User Management</a></li>
+                <li><a href="role-mgmt.html">Role Management</a></li>
+                <li><a href="perm-mgmt.html">Permission Management</a></li>
+                <li><a href="role-perm-mgmt.html">Role-Permission Management</a></li>
+                <li><a href="user-role-mgmt.html">User-Role Management</a></li>
+                <li><a href="index.html">Logout</a></li>
+              </ul>
+        </div>
+
+        <div class="container-2">
+            <div class="form-container">
+                <form>
+
+                    <div class="head">
+                        <h2 class="form-header">User Management</h2>
+                    </div>   
+                
+                      
+                    <span id="form-error" style="color:red"></span><br>
+                        <label>Login</label><br>
+                        <input type="text" name="Login" id="usr"><br>
+                        <label>Password</label><br>
+                        <input type="text" name="Password" id="passwd"><br>
+                        <label>Name</label><br>
+                        <input type="text" id="name" name="Name"><br>
+                        <label>Email</label><br>
+                        <input type="text" name="Email" id="email">     <br>
+                        <label>Country</label><br> 
+                        <select name="Country" id="cmbCountries">
+                        <option selected hidden disabled>Select</option>
+                        </select><br>
+                        <label>City</label>   <br>
+                        <select name="City" id="cmbCities">
+                            <option selected hidden disabled>Select</option>
+                        </select><br>
+                        <br>
+                    <button type="reset" class="btn" onclick="resetDropdown();">Reset</button></br><br>
+                    <button type="submit" class="btn">Save</button>
+                </form>
+
+            </div>
+
+            <div class="table-container" id="table-div">
+
+            </div>
+
+            <script>
+                const form = document.querySelector('form');
+                form.addEventListener('submit',submitData);
+              
+            </script>
+
+            <script>
+                var users = SecurityManager.GetAllUsers();
+                console.log(users);
+            </script>
+
+         </div>
+    </div>
+
+</body>
+</html>

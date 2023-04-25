@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&display=swap');
+body {
+ 
+    background-color: #F3F3F3;
+    height:100%;
+    font-family:'Gentium Book Plus', serif;
+    
+}
+
+.page-container{
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.form-container{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+
+}
+
+.login-head
+{
+    background-color: #3d3d3d;
+    width: 100%;    
+    margin-top: -20px;
+}
+
+h2{
+    color:#F3F3F3;
+    padding:20px 30px 20px 10px;
+    width: 100%;
+}
+
+.user-login, .admin-login
+{
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow:1px 1px 5px #d9d9d9;
+}
+
+.user-login
+{
+    margin-left: 10px;
+    
+}
+
+.admin-login
+{
+    margin-right:10px;
+    
+}
+
+form{
+  
+    background-color: #ffffff;
+    justify-items: center;
+    margin: 50px 30px 30px 100px;
+}
+
+input{
+
+    width:300px;
+    height: 50px;
+    border-radius:7px;
+    background-image: linear-gradient(#dfdfdf,#ffffff);
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+   color:#131313;
+}
+
+input[type=text]:focus{
+    border: 3px solid #131313;
+}
+
+label{
+    font-style: arial;
+    color:#3d3d3d;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn{
+
+    width: 100%;
+    padding: 10px 40px 10px 40px ;
+    border-style: none;
+    background-color:#3d3d3d;
+    color:#F3F3F3;
+    border-radius: 2px;
+    font-size: 20px;
+
+
+}
+
+.btn:hover{
+    cursor:pointer;
+}

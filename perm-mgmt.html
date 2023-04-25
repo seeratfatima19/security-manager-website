@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Permission Management</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="SecurityManager.js"></script>
+        <script src="perm-mgmt.js"></script>
+
+        <style>
+            .container-2{
+                height:100%;
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                
+            }
+
+            .form-container
+            {
+                margin-top:0px;
+            }
+
+            .heading{
+                margin-top: -10px;
+            }
+        </style>
+    
+        
+    </head>
+
+    <body onload="showTable();">
+        <div class="page-container">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="admin.html">Home</a></li>
+                    <li><a href="usr-mgmt.html">User Management</a></li>
+                    <li><a href="role-mgmt.html">Role Management</a></li>
+                    <li><a href="perm-mgmt.html">Permission Management</a></li>
+                    <li><a href="role-perm-mgmt.html">Role-Permission Management</a></li>
+                    <li><a href="user-role-mgmt.html">User-Role Management</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                  </ul>
+            </div>
+    
+            <div class="container-2">
+                <div class="form-container">
+                    
+                    <form>
+                        <h2 class="heading">Permission Management</h2>
+                  
+                    <span id="form-error" style="color:red"></span><br>
+                        <label>Permission Name</label><br>
+                        <input type="text" name="PermName" id="perm"><br>
+                        <label>Description</label><br>
+                        <input type="text" name="Description" id="desc"><br>
+                        <br>
+                        <button type="reset" class="btn">Clear</button><br><br>
+                        <button type="submit" class="btn">Save</button>
+                    </form>
+    
+                </div>
+                <div class="table-container" id="table-div">
+    
+                </div>
+    
+                <script>
+                    const form = document.querySelector('form');
+                    form.addEventListener('submit',savePermission);
+                  
+                </script>
+    
+              
+    
+
+        </div>
+    </body>
+
+</html>
